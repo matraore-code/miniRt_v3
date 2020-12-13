@@ -6,7 +6,7 @@
 /*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 05:14:00 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 05:32:55 by matraore         ###   ########.fr       */
+/*   Updated: 2020/12/13 03:19:00 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,24 @@ t_mat		*inverse_matrix(t_mat *mat)
 	t_mat	*inv;
 	double	d;
 
-	d = determinant_mattrix(mat);
+	d = 1.0 / determinant_matrix(mat);
+	printf("%.3f\n", d);
 	if (is_inversible(mat) != 0)
 	{
 		adj = matrix_adjoint(mat);
-		inv = mult_matr_scalar(mat, 1.0 / d);
+		inv = mult_matr_scalar(adj, d);
 		return (inv);
 	}
 	return (NULL);
+}
+
+double		cofactor_matrix(t_mat *mat, int row, int col)
+{
+	if (mat->row == 3 && mat->col == 3)
+		return (cofactor_3x3(mat, row, col));
+	if (mat->row == 4 && mat->col == 4)
+		return (cofactor_4x4(mat, row, col));
+	return (1337);
 }
 
 t_mat		*matrix_adjoint(t_mat *mat)
@@ -50,7 +60,7 @@ t_mat		*matrix_adjoint(t_mat *mat)
 		i = 0;
 		while (i < mat->col)
 		{
-			*(adj->d + (k++)) = cofactor_4x4(mat, j, i);
+			*(adj->d + (k++)) = cofactor_matrix(mat, j, i);
 			i++;
 		}
 		j++;

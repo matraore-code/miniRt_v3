@@ -6,7 +6,7 @@
 /*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 05:37:53 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 06:15:43 by matraore         ###   ########.fr       */
+/*   Updated: 2020/12/13 05:02:40 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define MATRIX_H
 # include "../tuples/tuples.h"
 # include "../tools/tools.h"
+#include <math.h>
 
 typedef	struct	s_matrix
 {
@@ -37,6 +38,7 @@ t_mat			*mult_matr_scalar(t_mat *mat, double a);
 t_mat			*submatrix(t_mat *mat, int row, int col);
 double			minor_matrix(t_mat *mat, int row, int col);
 double			determinant_2x2(t_mat *mat);
+double			cofactor_3x3(t_mat *mat, int row, int col);
 double			cofactor_matrix(t_mat *mat, int row, int col);
 double			determinant_3x3(t_mat *mat);
 double			deter_free_mat(t_mat *mat);
@@ -46,9 +48,13 @@ double			determinant_matrix(t_mat *mat);
 int				is_inversible(t_mat *mat);
 t_mat			*inverse_matrix(t_mat *mat);
 t_mat			*matrix_adjoint(t_mat *mat);
-t_mat			*tuple_to_matrix(t_tuple p);
+t_mat			*tuple_to_matrix(t_tuple *p);
 t_tuple			*matrix_to_tuple(t_mat *mat);
-t_tuple			*matrix_x_tuple(t_mat *mat, t_tuple p);
+t_tuple			*matrix_x_tuple(t_mat *mat, t_tuple *p);
 t_tuple			*transformatiion(t_tuple *pt, t_mat a, t_mat b, t_mat c);
+t_mat			*translation(double x, double y, double z);
+t_mat			*rotation_x(double y);
+t_mat			*rotation_y(double y);
+t_mat			*rotation_z(double y);
 
 #endif

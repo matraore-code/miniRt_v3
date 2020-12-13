@@ -6,7 +6,7 @@
 /*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 04:28:40 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 05:17:01 by matraore         ###   ########.fr       */
+/*   Updated: 2020/12/12 23:56:25 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ double		determinant_matrix(t_mat *mat)
 		return (determinant_2x2(mat));
 	if (mat->col == 3 && mat->row == 3)
 		return (determinant_3x3(mat));
-	if (mat->col == 4 && mat->row == 0)
+	if (mat->col == 4 && mat->row == 4)
 		return (determinant_4x4(mat));
 	return (0);
 }

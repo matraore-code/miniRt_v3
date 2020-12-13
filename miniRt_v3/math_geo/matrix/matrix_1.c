@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_1.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 00:52:53 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 03:11:07 by matraore         ###   ########.fr       */
+/*   Updated: 2020/12/13 05:04:01 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ t_mat			*matrix_identity(int i)
 	k = 0;
 	while (k < i)
 	{
-		set_cell_matrix(mat, i, i, 1);
+		set_cell_matrix(mat, k, k, 1);
 		k++;
 	}
 	return (mat);

@@ -6,7 +6,7 @@
 /*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 03:13:43 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 05:08:56 by matraore         ###   ########.fr       */
+/*   Updated: 2020/12/13 03:18:26 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,9 @@ t_mat		*mult_matr_scalar(t_mat *mat, double a)
 	t_mat	*m;
 	int		i;
 
-	m = create_matrix(mat->row, mat->col);
+	m = matrix_clone(mat);
 	i = 0;
+	printf("a = %.3f\n", a);
 	while (i < mat->row * mat->col)
 	{
 		*(m->d + (i)) *= a;
@@ -80,7 +81,7 @@ double		determinant_2x2(t_mat *m)
 	return (d);
 }
 
-double		cofactor_matrix(t_mat *mat, int row, int col)
+double		cofactor_3x3(t_mat *mat, int row, int col)
 {
 	int		n;
 	double	co;
