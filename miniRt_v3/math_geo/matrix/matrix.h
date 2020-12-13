@@ -6,7 +6,7 @@
 /*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 05:37:53 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/13 05:02:40 by matraore         ###   ########.fr       */
+/*   Updated: 2020/12/13 05:09:26 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define MATRIX_H
 # include "../tuples/tuples.h"
 # include "../tools/tools.h"
-#include <math.h>
+# include <math.h>
 
 typedef	struct	s_matrix
 {
