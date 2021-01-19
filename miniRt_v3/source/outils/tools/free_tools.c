@@ -6,11 +6,11 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:55:34 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/17 11:20:24 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:40:44 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/tools.h"
+# include "../../../includes/tool.h"
 
 t_list	*lst_new(void *content)
 {

@@ -1,4 +1,4 @@
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 
 t_tuple	normale_plan(t_hit hit, t_ray ray, t_data *data)
@@ -14,8 +14,8 @@ t_hit  get_hit_plane(t_object *plane, t_ray ray, t_data *g_win)
     t_hit hit;
 
     (void)(g_win);
-    d = dot(plane->vector, ray.dir);
-    hit_point = (dot(sub_tuple(plane->pos[0], ray.ori), plane->vector) / d);
+    d = dot_tuple(plane->vector, ray.dir);
+    hit_point = (dot_tuple(sub_tuple(plane->pos[0], ray.ori), plane->vector) / d);
     if (hit_point < 0)
         return (hit_infini());
     else

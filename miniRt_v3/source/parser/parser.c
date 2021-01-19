@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 03:10:21 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/17 05:35:47 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 17:16:15 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ t_parser			g_parser[] = {
 	{"c", 1, &parse_camera},
 	{"l", 1, &parse_light},
 	{"pl", 2, &parse_plan},
-	{"sp", 2, &parse_sphere},
-
+	{"sp", 2, &parse_sphere}
 };
 
 static void	checke_elemt(t_data *g_win, char *c)
@@ -41,23 +40,25 @@ static void	checke_elemt(t_data *g_win, char *c)
 
 	 i = 0;
 	 j = 0;
+
 	while (c[i])
 	{
-		if (c[i] == '\t')
+		if (c[i] == '\t' )
 			c[i] = ' ';
 		i++;
 	}
 	str = ft_split(c, ' ');
 	while (g_parser[j].id)
     {
-        if (!ft_strcnmp(str[0], g_parser[i].id, g_parser[i].x))
+        if (!ft_strncmp(str[j], g_parser[j].id, g_parser[j].x))
 		{
-			g_parser[i].func(str, g_win);
-			return ;
+			printf("okay");
+			// g_parser[j].func(g_win, str);
+			// return ;
 		}
 		j++;
     }
-	error_exit("ERREUR DE FICHIER ID INCONU", g_win);
+	error_exit("ERREUR DE FICHIER INCONU", g_win);
 }
 
 void		is_defined(t_data *g_win)
@@ -92,7 +93,7 @@ void        get_scene_info(t_data *g_win, const char *filename)
 	 		break;
 		free(lines);
 	}
-    is_defined(g_win);
-	g_win->camera = g_win->list_cam->content;
-	g_win->lights = g_win->list_light->content;
+    // is_defined(g_win);
+	// g_win->camera = g_win->list_cam->content;
+	// g_win->lights = g_win->list_light->content;
 }

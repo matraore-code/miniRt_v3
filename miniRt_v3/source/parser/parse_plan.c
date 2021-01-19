@@ -6,13 +6,13 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/17 14:17:44 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/17 16:06:06 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:18:48 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/parser.h"
 
-int         check_plan(t_data *g_win,char **str)
+int         check_plan(t_data *g_win, char **str)
 {
     int l;
 
@@ -26,7 +26,7 @@ int         check_plan(t_data *g_win,char **str)
 
 }
 
-void			checked_value_plan(t_data *g_win,char **arr, t_object *obj)
+void			checked_value_plan(t_data *g_win, char **arr, t_object *obj)
 {
     char    **str;
 
@@ -46,7 +46,7 @@ void			checked_value_plan(t_data *g_win,char **arr, t_object *obj)
 		error_exit("Allocation echoue pour le plan", g_win);
 }
 
-extern int      parse_plan(t_data *g_win, const char **array)
+void     parse_plan(t_data *g_win, char **array)
 {
     t_object *object;
 	    
@@ -55,5 +55,4 @@ extern int      parse_plan(t_data *g_win, const char **array)
     if (!check_plan(g_win, array))
         error_exit("ERREUR D'IMPLEMENTAION PlAN",g_win);
 	checked_value_plan(g_win, array, object);
-    return (0);
 }

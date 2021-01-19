@@ -1,4 +1,4 @@
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 t_tuple get_normal(t_hit hit_point, t_ray ray,t_data *g_win)
 {
@@ -33,7 +33,7 @@ t_tuple get_normal(t_hit hit_point, t_ray ray,t_data *g_win)
 //             fmin(a, 1)));
 // }
 
-t_color     compute_lights(t_hit hit_point, t_ray ray, t_data *g_win)
+t_color     compute_light(t_hit hit_point,t_ray ray, t_light *lignt, t_data *g_win)
 {
     double d;
     t_light light;
@@ -43,7 +43,7 @@ t_color     compute_lights(t_hit hit_point, t_ray ray, t_data *g_win)
 
     light = *(g_win->lights);
     lightcolor = multi_color_reel(light.col, light.bright);
-    d = produit_scalaire(normalize_tuple(sub_tuple(light.pos, hit_point.pos)),
+    d = dot_tuple(normalize_tuple(sub_tuple(light.pos, hit_point.pos)),
                         get_normal(hit_point, ray, g_win));
     d = d > 0 ? d : 0; 
     diffuse = multi_color_reel(lightcolor, d);
@@ -66,7 +66,8 @@ t_color     compute_lights(t_hit hit_point, t_ray ray, t_data *g_win)
     lights = g_win->list_light;
     while (lights)
     {
-        color = compare_color(color, compute_light(hit_point, ray, (t_light *)lights->content, g_win));
+        color = adding_color(color, compute_light(hit_point, ray, (t_light *)lights->content, g_win));
+        color = compare_color(color, create_color(255, 255, 255));
         lights = lights->next;
     }
     return (color);

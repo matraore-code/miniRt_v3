@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/09 05:27:31 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:52:30 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:38:47 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <string.h>
-# include "../../../includes/tools.h"
+#include "../../../includes/tool.h"
 
 
 void		tools_memory_init(void)

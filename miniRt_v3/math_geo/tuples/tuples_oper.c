@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tuples_oper.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 04:58:41 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/11 05:35:46 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:16:20 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,12 @@ t_tuple		add_tuple(t_tuple a, t_tuple b)
 
 t_tuple		sub_tuple(t_tuple a, t_tuple b)
 {
-	return (add_tuple(a, rev_dir_tuple(b)));
+	t_tuple	result;
+	
+	result.x = a.x - b.x;
+	result.y = a.y - b.y;
+	result.z = a.z - b.z;
+	return (result);
 }
 
 /*

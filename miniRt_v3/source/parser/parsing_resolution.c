@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 09:52:55 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 10:26:33 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:19:19 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 int	mlx_get_screen_size(void *mlx_ptr, int *sizex, int *sizey);
 
-int check_resolution(t_data *g_win,char **str)
+int check_resolution(t_data *g_win, char **str)
 {
     int l;
 
@@ -32,7 +32,7 @@ int check_resolution(t_data *g_win,char **str)
     }
 }
 
-int	parse_resolution(t_data *g_win, const char **array)
+void	parse_resolution(t_data *g_win, char **array)
 {
     int  x_max;
     int  y_max;
@@ -48,5 +48,4 @@ int	parse_resolution(t_data *g_win, const char **array)
             g_win->res.size_y = y_max;
     if ((g_win->res.size_x < 0) || (g_win->res.size_y < 0))
            error_exit("Taille trop petite", g_win);
-	return (0);
 }

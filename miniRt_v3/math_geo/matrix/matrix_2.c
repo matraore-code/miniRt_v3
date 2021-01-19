@@ -3,22 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   matrix_2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 03:13:43 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/13 03:18:26 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:29:46 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "matrix.h"
 
-void			cpy_mat3x3(t_mat3x3 *dst, t_mat3x3 src)
+double      ft_sqr(double a)
 {
-	cpy_tuple(&(dst->c1), src.c1);
-	cpy_tuple(&(dst->c2), src.c2);
-	cpy_tuple(&(dst->c3), src.c3);
+    return (a * a);
 }
-
 /*
 ** This function creates a 3x3 identity matrix
 */

@@ -1,4 +1,4 @@
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 t_hit create_dist_hit(t_object *obj, t_tuple p, t_color c, double d)
 {

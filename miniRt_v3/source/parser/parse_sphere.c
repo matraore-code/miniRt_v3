@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 11:48:40 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 15:54:30 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:18:44 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int         check_sphere(t_data *g_win,char **str)
 
 }
 
-void			checked_value_sphere(t_data *g_win,char **arr, t_object *obj)
+void			checked_value_sphere(t_data *g_win, char **arr, t_object *obj)
 {
     char    **str;
 
@@ -40,16 +40,13 @@ void			checked_value_sphere(t_data *g_win,char **arr, t_object *obj)
 		error_exit("Allocation failed for sphere", g_win);
 }
 
-extern int      parse_sphere(t_data *g_win, const char *lines)
+void     parse_sphere(t_data *g_win, char **array)
 {
-    char    **array;
     t_object *object;
 	    
     if (!(object = malloc(sizeof(t_object))))
         error_exit("impoosible d'allouer le sphere", g_win);
-    array = ft_split(lines, ' ');
     if (!check_sphere(g_win, array))
         error_exit("ERREUR D'IMPLEMENTAION SPHERE",g_win);
 	checked_value_sphere(g_win, array, object);
-    return (0);
 }

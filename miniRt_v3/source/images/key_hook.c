@@ -1,4 +1,4 @@
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 # define KEY_ESC 53
 # define KEY_LEFT 123
 # define KEY_RIGHT 124

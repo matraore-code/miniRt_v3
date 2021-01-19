@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tuples.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 03:40:35 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 06:17:03 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:40:08 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,7 @@ double			norm_tuple(t_tuple v);
 t_tuple			normalize_tuple(t_tuple v);
 double			dot_tuple(t_tuple a, t_tuple b);
 t_tuple			cross(t_tuple a, t_tuple b);
+double			longueur_tuple(t_tuple a);
+double		distance_tuples(t_tuple a, t_tuple b);
 
 #endif

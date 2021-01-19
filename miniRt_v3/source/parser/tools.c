@@ -6,13 +6,13 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 16:45:49 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/17 15:40:00 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:13:36 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "../../includes/parser.h"
 
-int         ft_array_length(char **array)
+int         ft_array_length( char **array)
 {
     int i;
 
@@ -22,7 +22,7 @@ int         ft_array_length(char **array)
     return (i);
 }
 
-int         fdigit_d(char *str)
+int         fdigit_d( char *str)
 {
     int i;
     int j;
@@ -41,7 +41,7 @@ int         fdigit_d(char *str)
      return (j);
 }
 
-int         fdigit(char *str)
+int         fdigit( char *str)
 {
     int i;
     int j;

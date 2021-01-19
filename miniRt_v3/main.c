@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minirt.c                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/16 09:11:22 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 15:59:58 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:30:38 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@ int main(int argc, char **argv)
     g_win->list_light = NULL;
     g_win->objects = NULL;
     get_scene_info(g_win, filename);
-    if (!(initialise_win(g_win)))
-       error_exit("Echec d'ouverture de la fenetre", g_win);
-    mlx_loop(g_win->mlx_info.mlx);
+    // if (!(initialise_win(g_win)))
+    //    error_exit("Echec d'ouverture de la fenetre", g_win);
+    // mlx_loop(g_win->mlx_info.mlx);
     return (0);
 }

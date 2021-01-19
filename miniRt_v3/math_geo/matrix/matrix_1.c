@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/12 00:52:53 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/13 05:04:01 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:26:24 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,11 @@ t_mat3x3		invert_mat3x3(t_mat3x3 mat)
 	t_tuple		v_z;
 
 	v_x = create_tuple(mat.c1.x, mat.c2.x, mat.c3.x);
-	v_x = scale_tuple((1 / ft_sqr(norm_tuple(v_x))), v_x);
+	v_x = scale_tuple((1 / ft_sqr(longueur_tuple(v_x))), v_x);
 	v_y = create_tuple(mat.c1.y, mat.c2.y, mat.c3.y);
-	v_y = scale_tuple((1 / ft_sqr(norm_tuple(v_y))), v_y);
+	v_y = scale_tuple((1 / ft_sqr(longueur_tuple(v_y))), v_y);
 	v_z = create_tuple(mat.c1.z, mat.c2.z, mat.c3.z);
-	v_z = scale_tuple((1 / ft_sqr(norm_tuple(v_z))), v_z);
+	v_z = scale_tuple((1 / ft_sqr(longueur_tuple(v_z))), v_z);
 	result.c1 = create_tuple(v_x.x, v_x.y, v_x.z);
 	result.c2 = create_tuple(v_y.x, v_y.y, v_y.z);
 	result.c3 = create_tuple(v_z.x, v_z.y, v_z.z);

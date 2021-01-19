@@ -1,4 +1,4 @@
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 
 
 t_hit   get_object_hit(t_object *obj, t_ray ray, t_data *g_win)

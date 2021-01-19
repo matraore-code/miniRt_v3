@@ -1,4 +1,4 @@
-#include "../includes/minirt.h"
+#include "../../includes/minirt.h"
 #define Pi 3.1415926
 
 
@@ -80,8 +80,7 @@ t_color        pixel(t_tuple_2d pix, t_data *g_win)
     cam->rot_mat = look_at(cam);
     aspect_ratio = (double)g_win->res.size_x / (double)g_win->res.size_y;
     vec.x = (2.0 * (pix.x + 0.5) / g_win->res.size_x - 1) * tan(g_win->camera->fov / 2 * Pi / 180) * aspect_ratio;
-    vec.y = (1 - 2 * ((pix.y + 0.5) / g_win->res.size_y)) * tan(g_win->camera->fov / 2 * Pi / 180)
-    ;
+    vec.y = (1 - 2 * ((pix.y + 0.5) / g_win->res.size_y)) * tan(g_win->camera->fov / 2 * Pi / 180);
     vec.z = 1;
     ray.ori = g_win->camera->pos;
     ray.dir = mult_mat3x3_tuple(g_win->camera->rot_mat, vec);

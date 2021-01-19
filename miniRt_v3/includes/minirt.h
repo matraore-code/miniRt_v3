@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 08:11:26 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/16 01:29:52 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:39:12 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #include "parser.h"
 #include "../librairies/get_next_line/get_next_line.h"
 #include "../librairies/libft/libft.h"
+#include "tool.h"
 #include <stdio.h>
 
 #define yo printf("YO!\n");

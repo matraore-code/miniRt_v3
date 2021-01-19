@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/24 16:08:03 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:09:43 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:16:39 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int         check_ambiant(t_data *g_win, char **str)
     }
 }
 
-extern int	parse_ambiant(t_data *g_win, const char **array)
+void	parse_ambiant(t_data *g_win, char **array)
 {
     char **str;
 
@@ -46,5 +46,4 @@ extern int	parse_ambiant(t_data *g_win, const char **array)
         error_exit("INTERVAL DE RATIO INCORRECT", g_win);
     str = ft_split(array[2], ',');
     g_win->ambi.col = parse_color(str, g_win);
-	return (0);
 }

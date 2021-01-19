@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tuples.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: matraore <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/11 03:47:37 by matraore          #+#    #+#             */
-/*   Updated: 2020/12/12 23:17:42 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:23:57 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,24 @@ t_tuple		*malloc_tuple(double p_x, double p_y, double p_z)
 	return (result);
 }
 
+double		longueur_tuple(t_tuple a)
+{
+	double		l;
+
+	l = sqrt(pow(a.x, 2) + pow(a.y, 2) + pow(a.z, 2));
+	return (l);
+}
+
+double		distance_tuples(t_tuple a, t_tuple b)
+{
+	double		distance;
+
+	distance = sqrt(pow(a.x - b.x, 2) +
+			pow(a.y - b.y, 2) +
+			pow(a.z - b.z, 2));
+	return (distance);
+}
+
 void		destroy_tuple(t_tuple to_destroy)
 {
 	(void)to_destroy;
@@ -44,6 +62,15 @@ void		free_tuple(t_tuple *to_free)
 {
 	destroy_tuple(*to_free);
 	free(to_free);
+}
+ t_tuple	normalize_tuple(t_tuple a)
+{
+	t_tuple	tuple;
+	double		n;
+
+	n = 1 / longueur_tuple(a);
+	tuple = create_tuple(a.x * n, a.y * n, a.z * n);
+	return (tuple);
 }
  
 double		dot_tuple(t_tuple a, t_tuple b)

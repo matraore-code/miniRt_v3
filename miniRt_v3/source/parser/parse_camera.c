@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/25 11:48:40 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 11:24:10 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:19:01 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_cam		*create_cam(t_data *g_win)
 
 
 
-int         check_camera(t_data *g_win,char **str)
+int         check_camera(t_data *g_win, char **str)
 {
     int l;
 
@@ -58,7 +58,7 @@ void			checked_value_cam(char **array, t_cam *cam, t_data *d)
 	cam->dir = normalize_tuple(cam->dir);
 }
 
-extern int      parse_camera(t_data *g_win, const char **array)
+void     parse_camera(t_data *g_win, char **array)
 {
 	 t_cam	*cam;
 
@@ -68,5 +68,4 @@ extern int      parse_camera(t_data *g_win, const char **array)
 	checked_value_cam(array, cam, g_win);
 	if (!lst_new_back(&(g_win->list_cam), cam))
 		error_exit("Impossible d'allouer la cam", g_win);
-    return (0);
 }

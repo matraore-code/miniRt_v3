@@ -6,7 +6,7 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/28 12:22:04 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/17 16:38:32 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 16:18:53 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,17 +51,14 @@ void			checked_value_light(char **array, t_light *light, t_data *g_win)
     light->col = parse_color(str, g_win);
 }
 
-extern int      parse_light(t_data *g_win, const char *lines)
+void     parse_light(t_data *g_win, char **lines)
 {
-    char    **array;
 	t_light	*light;
     
-    array = ft_split(lines, ' ');
 	light = create_light(g_win);
-    if (!check_light(g_win, array))
+    if (!check_light(g_win, lines))
         error_exit("ERREUR D'IMPLEMENTAION LUMIERE", g_win);
-	checked_value_light(array, light, g_win);
+	checked_value_light(lines, light, g_win);
 	if (!lst_new_back(&(g_win->list_light), light))
 		error_exit("Allocation failed for light", g_win);
-    return (0);
 }

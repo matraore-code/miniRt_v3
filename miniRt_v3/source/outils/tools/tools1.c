@@ -6,11 +6,11 @@
 /*   By: matraore <matraore@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/22 16:17:11 by matraore          #+#    #+#             */
-/*   Updated: 2021/01/16 09:48:03 by matraore         ###   ########.fr       */
+/*   Updated: 2021/01/19 15:38:52 by matraore         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "../../../includes/tools.h"
+# include "../../../includes/tool.h"
 
 
 double      ft_max(double a, double b)
