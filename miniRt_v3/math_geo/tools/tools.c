@@ -16,10 +16,12 @@
 #include <limits.h>
 #include <string.h>
 
-void		tools_memory_init(void)
+
+double	ft_sqr(double x)
 {
-	g_global_memory = 0;
+	return (x * x);
 }
+
 
 void		*tools_malloc(int alloc)
 {

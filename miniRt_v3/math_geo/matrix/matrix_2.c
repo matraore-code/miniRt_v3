@@ -12,83 +12,23 @@
 
 #include "matrix.h"
 
-t_mat		*mult_matr_scalar(t_mat *mat, double a)
+void			cpy_mat3x3(t_mat3x3 *dst, t_mat3x3 src)
 {
-	t_mat	*m;
-	int		i;
-
-	m = matrix_clone(mat);
-	i = 0;
-	printf("a = %.3f\n", a);
-	while (i < mat->row * mat->col)
-	{
-		*(m->d + (i)) *= a;
-		i++;
-	}
-	return (m);
+	cpy_tuple(&(dst->c1), src.c1);
+	cpy_tuple(&(dst->c2), src.c2);
+	cpy_tuple(&(dst->c3), src.c3);
 }
 
-t_mat		*submatrix(t_mat *mat, int row, int col)
+/*
+** This function creates a 3x3 identity matrix
+*/
+
+t_mat3x3		identity_mat3x3(void)
 {
-	t_mat	*sub;
-	int		i;
-	int		j;
-	int		k;
+	t_mat3x3	result;
 
-	j = 0;
-	k = 0;
-	sub = create_matrix(mat->row - 1, mat->col - 1);
-	while (j < mat->row)
-	{
-		i = 0;
-		while (i < mat->col)
-		{
-			if ((i != col) && (j != row) && (k < (mat->col * mat->row)))
-				*(sub->d + (k++)) = get_cell_matrix(mat, i, j);
-			i++;
-		}
-		j++;
-	}
-	return (sub);
-}
-
-double		minor_matrix(t_mat *mat, int row, int col)
-{
-	double	m;
-	t_mat	*matr;
-
-	m = 0;
-	if (mat->col != 2 && mat->row != 2)
-	{
-		matr = submatrix(mat, row, col);
-		m = determinant_2x2(matr);
-		destroy_matrix(matr);
-		return (m);
-	}
-	return (m);
-}
-
-double		determinant_2x2(t_mat *m)
-{
-	double	d;
-
-	d = 0;
-	if (m->col == 2 && m->row == 2)
-	{
-		d = ((m->entries[0][0] * m->entries[1][1]) -
-				(m->entries[0][1] * m->entries[1][0]));
-	}
-	return (d);
-}
-
-double		cofactor_3x3(t_mat *mat, int row, int col)
-{
-	int		n;
-	double	co;
-
-	n = row + col;
-	co = (minor_matrix(mat, row, col));
-	if (n % 2 != 0)
-		co *= -1;
-	return (co);
+	result.c1 = create_tuple(1.0, 0.0, 0.0);
+	result.c2 = create_tuple(0.0, 1.0, 0.0);
+	result.c3 = create_tuple(0.0, 0.0, 1.0);
+	return (result);
 }

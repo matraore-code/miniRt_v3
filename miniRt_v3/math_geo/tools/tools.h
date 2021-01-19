@@ -21,6 +21,7 @@
 
 int			g_global_memory;
 double		square(double x);
+double      ft_sqr(double x);
 double		degre_to_radian(double angle);
 void		tools_memory_init (void);
 void		*tools_malloc(int alloc);

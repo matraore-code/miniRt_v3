@@ -14,22 +14,30 @@
 # define TUPLES_H
 # include "../tools/tools.h"
 
-typedef	struct		s_tuple
+typedef struct	s_tuple
 {
-	double x;
-	double y;
-	double z;
-	double w;
-}					t_tuple;
+	double		x;
+	double		y;
+	double		z;
+}				t_tuple;
 
-t_tuple				*create_tuple(double x, double y, double z);
-void				destroy_tuple(t_tuple **p);
-double				magnetude_tuple(t_tuple *p);
-t_tuple				*add_tuple(t_tuple *a, t_tuple *b);
-t_tuple				*sub_tuple(t_tuple *a, t_tuple *b);
-t_tuple				*scalar_tuple(t_tuple *p, double a);
-t_tuple				*normalize_tuple(t_tuple *p);
-double				dot_product(t_tuple *a, t_tuple *b);
-t_tuple				*cross_product(t_tuple *a, t_tuple *b);
+t_tuple			create_tuple(double p_x, double p_y, double p_z);
+t_tuple			*malloc_tuple(double p_x, double p_y, double p_z);
+void			destroy_tuple(t_tuple to_destroy);
+void			free_tuple(t_tuple *to_free);
+
+t_tuple			add_tuple(t_tuple a, t_tuple b);
+t_tuple			sub_tuple(t_tuple a, t_tuple b);
+t_tuple			mult_tuple(t_tuple a, t_tuple b);
+t_tuple			div_tuple(t_tuple a, t_tuple b);
+t_tuple			scale_tuple(double scalar, t_tuple v);
+t_tuple			rev_dir_tuple(t_tuple v);
+void			cpy_tuple(t_tuple *dst, t_tuple src);
+double			cos_tuple(t_tuple a, t_tuple b);
+double			quadnorm_tuple(t_tuple v);
+double			norm_tuple(t_tuple v);
+t_tuple			normalize_tuple(t_tuple v);
+double			dot_tuple(t_tuple a, t_tuple b);
+t_tuple			cross(t_tuple a, t_tuple b);
 
 #endif

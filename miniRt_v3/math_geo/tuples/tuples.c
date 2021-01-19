@@ -13,48 +13,54 @@
 #include "tuples.h"
 #include <math.h>
 
-t_tuple		*create_tuple(double x, double y, double z)
-{
-	t_tuple		*p;
 
-	p = tools_malloc(sizeof(t_tuple));
-	if (p == NULL)
+t_tuple		create_tuple(double p_x, double p_y, double p_z)
+{
+	t_tuple	result;
+
+	result.x = p_x;
+	result.y = p_y;
+	result.z = p_z;
+	return (result);
+}
+
+t_tuple		*malloc_tuple(double p_x, double p_y, double p_z)
+{
+	t_tuple	*result;
+
+	result = malloc(sizeof(t_tuple));
+	if (!result)
 		return (NULL);
-	p->x = x;
-	p->y = y;
-	p->z = z;
-	return (p);
+	*result = create_tuple(p_x, p_y, p_z);
+	return (result);
 }
 
-void		destroy_tuple(t_tuple **p)
+void		destroy_tuple(t_tuple to_destroy)
 {
-	tools_free((void**)p, sizeof(t_tuple));
+	(void)to_destroy;
 }
 
-double		magnetude_tuple(t_tuple *p)
+void		free_tuple(t_tuple *to_free)
 {
-	double		m;
-
-	m = sqrt((p->x * p->x) + (p->y * p->y) + (p->z * p->z));
-	return (m);
+	destroy_tuple(*to_free);
+	free(to_free);
+}
+ 
+double		dot_tuple(t_tuple a, t_tuple b)
+{
+	return ((a.x * b.x) + (a.y * b.y) + (a.z * b.z));
 }
 
-t_tuple		*add_tuple(t_tuple *a, t_tuple *b)
+/*
+** This function computes the cross product of two 3D vectors
+*/
+
+t_tuple		cross(t_tuple a, t_tuple b)
 {
-	t_tuple		*s;
+	t_tuple	result;
 
-	s = create_tuple((a->x + b->x), (a->y + b->y), (a->z + b->z));
-	if (s == NULL)
-		return (NULL);
-	return (s);
-}
-
-t_tuple		*sub_tuple(t_tuple *a, t_tuple *b)
-{
-	t_tuple		*s;
-
-	s = create_tuple((a->x - b->x), (a->y - b->y), (a->z - b->z));
-	if (s == NULL)
-		return (NULL);
-	return (s);
+	result.x = (a.y * b.z) - (b.y * a.z);
+	result.y = (a.z * b.x) - (b.z * a.x);
+	result.z = (a.x * b.y) - (b.x * a.y);
+	return (result);
 }

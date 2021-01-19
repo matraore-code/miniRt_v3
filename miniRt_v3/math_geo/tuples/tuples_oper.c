@@ -12,50 +12,64 @@
 
 #include "tuples.h"
 
-t_tuple		*scalar_tuple(t_tuple *p, double a)
+t_tuple		add_tuple(t_tuple a, t_tuple b)
 {
-	t_tuple		*s;
+	t_tuple	result;
 
-	s = create_tuple((p->x * a), (p->y * a), (p->z * a));
-	if (s == NULL)
-		return (NULL);
-	return (s);
+	result.x = a.x + b.x;
+	result.y = a.y + b.y;
+	result.z = a.z + b.z;
+	return (result);
 }
 
-t_tuple		*normalize_tuple(t_tuple *p)
-{
-	double		m;
-	double		i;
-	t_tuple		*s;
+/*
+** This function subtracts two 3D vectors
+*/
 
-	m = magnetude_tuple(p);
-	i = 1 / m;
-	s = create_tuple((p->x * i), (p->y * i), (p->z * i));
-	if (s == NULL)
-		return (NULL);
-	return (s);
+t_tuple		sub_tuple(t_tuple a, t_tuple b)
+{
+	return (add_tuple(a, rev_dir_tuple(b)));
 }
 
-double		dot_product(t_tuple *a, t_tuple *b)
-{
-	double		d;
+/*
+** This function multiplies two 3D vectors
+*/
 
-	d = (a->x * b->x) + (a->y * b->y) + (a->z * b->z);
-	return (d);
+t_tuple		mult_tuple(t_tuple a, t_tuple b)
+{
+	t_tuple	result;
+
+	result.x = a.x * b.x;
+	result.y = a.y * b.y;
+	result.z = a.z * b.z;
+	return (result);
 }
 
-t_tuple		*cross_product(t_tuple *a, t_tuple *b)
-{
-	double		x;
-	double		y;
-	double		z;
-	t_tuple		*s;
+/*
+** This function divides two 3D vectors
+*/
 
-	x = (a->y * b->z) - (a->z * b->y);
-	y = (a->z * b->x) - (a->x * b->z);
-	z = (a->x * b->y) - (a->y - b->x);
-	s = create_tuple(x, y, z);
-	if (s == NULL)
-		return (NULL);
-	return (s);
+t_tuple		div_tuple(t_tuple a, t_tuple b)
+{
+	t_tuple	result;
+
+	result.x = a.x / b.x;
+	result.y = a.y / b.y;
+	result.z = a.z / b.z;
+	return (result);
 }
+
+/*
+** This function scales a 3D vector
+*/
+
+t_tuple		scale_tuple(double scalar, t_tuple v)
+{
+	t_tuple	result;
+
+	result.x = scalar * v.x;
+	result.y = scalar * v.y;
+	result.z = scalar * v.z;
+	return (result);
+}
+

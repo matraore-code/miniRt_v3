@@ -12,69 +12,36 @@
 
 #include "matrix.h"
 
-t_mat			*create_matrix(int row, int col)
+t_mat3x3		create_mat3x3(t_tuple a, t_tuple b, t_tuple c)
 {
-	t_mat		*mat;
-	int			k;
+	t_mat3x3	result;
 
-	mat = tools_malloc(sizeof(t_mat));
-	mat->d = tools_malloc(sizeof(double) * row * col);
-	mat->row = row;
-	mat->col = col;
-	mat->entries = tools_malloc(sizeof(double *) * row);
-	if (mat->entries == NULL || mat->d == NULL)
-	{
-		free(mat);
+	result.c1 = a;
+	result.c2 = b;
+	result.c3 = c;
+	return (result);
+}
+
+t_mat3x3		*malloc_mat3x3(t_tuple a, t_tuple b, t_tuple c)
+{
+	t_mat3x3	*result;
+
+	result = malloc(sizeof(t_mat3x3));
+	if (!result)
 		return (NULL);
-	}
-	k = 0;
-	while (k < row)
-	{
-		mat->entries[k] = mat->d + k * col;
-		k++;
-	}
-	fill_matrix(mat, 0);
-	return (mat);
+	*result = create_mat3x3(a, b, c);
+	return (result);
 }
 
-void			destroy_matrix(t_mat *mat)
+void			destroy_mat3x3(t_mat3x3 to_destroy)
 {
-	free(mat->d);
-	free(mat->entries);
-	free(mat);
-	mat = NULL;
+	free_tuple(&to_destroy.c1);
+	free_tuple(&to_destroy.c2);
+	free_tuple(&to_destroy.c3);
 }
 
-void			set_cell_matrix(t_mat *mat, int x, int y, double val)
+void			free_mat3x3(t_mat3x3 *to_free)
 {
-	double		*p;
-
-	p = mat->d + y + x * mat->col;
-	*p = val;
-}
-
-double			get_cell_matrix(t_mat *mat, int x, int y)
-{
-	double		*p;
-
-	p = mat->d + x + y * mat->col;
-	return (*p);
-}
-
-void			fill_matrix(t_mat *mat, double val)
-{
-	int			i;
-	int			j;
-
-	j = 0;
-	while (j < mat->row)
-	{
-		i = 0;
-		while (i < mat->col)
-		{
-			set_cell_matrix(mat, i, j, val);
-			i++;
-		}
-		j++;
-	}
+	destroy_mat3x3(*to_free);
+	free(to_free);
 }

@@ -16,45 +16,24 @@
 # include "../tools/tools.h"
 # include <math.h>
 
-typedef	struct	s_matrix
+typedef struct	s_mat3x3
 {
-	int			row;
-	int			col;
-	double		*d;
-	double		**entries;
-}				t_mat;
+	t_tuple		c1;
+	t_tuple		c2;
+	t_tuple		c3;
+}				t_mat3x3;
 
-t_mat			*create_matrix(int row, int col);
-void			destroy_matrix(t_mat *mat);
-void			set_cell_matrix(t_mat *mat, int x, int y, double val);
-double			get_cell_matrix(t_mat *mat, int x, int y);
-void			fill_matrix(t_mat *mat, double val);
-t_mat			*matrix_clone(t_mat *mat);
-void			transpose_matrix(t_mat *mat);
-t_mat			*matrix_identity(int i);
-double			mutipl_tools(t_mat *mat1, t_mat *mat2, int x, int y);
-t_mat			*multi_matrix(t_mat *mat1, t_mat *mat2);
-t_mat			*mult_matr_scalar(t_mat *mat, double a);
-t_mat			*submatrix(t_mat *mat, int row, int col);
-double			minor_matrix(t_mat *mat, int row, int col);
-double			determinant_2x2(t_mat *mat);
-double			cofactor_3x3(t_mat *mat, int row, int col);
-double			cofactor_matrix(t_mat *mat, int row, int col);
-double			determinant_3x3(t_mat *mat);
-double			deter_free_mat(t_mat *mat);
-double			cofactor_4x4(t_mat *mat, int row, int col);
-double			determinant_4x4(t_mat *mat);
-double			determinant_matrix(t_mat *mat);
-int				is_inversible(t_mat *mat);
-t_mat			*inverse_matrix(t_mat *mat);
-t_mat			*matrix_adjoint(t_mat *mat);
-t_mat			*tuple_to_matrix(t_tuple *p);
-t_tuple			*matrix_to_tuple(t_mat *mat);
-t_tuple			*matrix_x_tuple(t_mat *mat, t_tuple *p);
-t_tuple			*transformatiion(t_tuple *pt, t_mat a, t_mat b, t_mat c);
-t_mat			*translation(double x, double y, double z);
-t_mat			*rotation_x(double y);
-t_mat			*rotation_y(double y);
-t_mat			*rotation_z(double y);
+t_mat3x3		create_mat3x3(t_tuple a, t_tuple b, t_tuple c);
+t_mat3x3		*malloc_mat3x3(t_tuple a, t_tuple b, t_tuple c);
+void			destroy_mat3x3(t_mat3x3 to_destroy);
+void			free_mat3x3(t_mat3x3 *to_free);
+
+t_mat3x3		transpose_mat3x3(t_mat3x3 mat);
+t_mat3x3		invert_mat3x3(t_mat3x3 mat);
+t_tuple		mult_mat3x3_tuple(t_mat3x3 mat, t_tuple v);
+t_mat3x3		mult_mat3x3_mat3x3(t_mat3x3 mat1, t_mat3x3 mat2);
+t_mat3x3		scale_mat3x3(double scalar, t_mat3x3 mat);
+void			cpy_mat3x3(t_mat3x3 *dst, t_mat3x3 src);
+t_mat3x3		identity_mat3x3(void);
 
 #endif
